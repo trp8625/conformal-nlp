@@ -20,9 +20,8 @@ boolean mask over classes indicating which are included in the prediction set.
 import numpy as np
 
 
-# ---------------------------------------------------------------------------
+
 # LAC — Least Ambiguous Classifier (simplest, softmax-based)
-# ---------------------------------------------------------------------------
 
 def lac_scores(probs: np.ndarray, labels: np.ndarray) -> np.ndarray:
     """
@@ -64,9 +63,8 @@ def lac_predict(probs: np.ndarray, q_hat: float) -> np.ndarray:
     return probs >= (1.0 - q_hat)
 
 
-# ---------------------------------------------------------------------------
+
 # APS — Adaptive Prediction Sets
-# ---------------------------------------------------------------------------
 
 def aps_scores(probs: np.ndarray, labels: np.ndarray) -> np.ndarray:
     """
@@ -146,10 +144,7 @@ def aps_predict(probs: np.ndarray, q_hat: float) -> np.ndarray:
     return sets
 
 
-# ---------------------------------------------------------------------------
 # RAPS — Regularized Adaptive Prediction Sets
-# ---------------------------------------------------------------------------
-
 def raps_scores(
     probs: np.ndarray,
     labels: np.ndarray,
@@ -238,9 +233,8 @@ def raps_predict(
     return sets
 
 
-# ---------------------------------------------------------------------------
+
 # Registry — lets calibration.py look up scores by name
-# ---------------------------------------------------------------------------
 
 SCORE_FN = {
     "LAC":  lac_scores,
